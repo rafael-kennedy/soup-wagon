@@ -14,6 +14,8 @@ tags:
 
 ## This is a Heading h2
 
-![Soup](/static/img/pexels-pixabay-209540.jpg "Soup")
+![](/static/img/pexels-timur-saglambilek-66639.jpg "Why Soup?")
 
-Here's some content
+Soup is magic. The caldron produces something that is always more than the sum of its parts. Start with a redolent mirepoix or silken beans, add a fragrant broth, jewel colored pieces of vegetable, chewy noodles, rich cheeses, thick cream, transforming them into soup brings each element into a whole. Tantalizing, warming, relaxing; but most of all nourishing.
+
+Easy to store, quick to reheat, soup is the perfect meal.
