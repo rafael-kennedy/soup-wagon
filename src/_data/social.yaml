@@ -1,5 +1,10 @@
----
 links:
-  - icon: Netlify CMS
-    url: "https://www.netlifycms.org/"
-    alt: Open source content management for your Git workflow
+  - icon: twitter
+    url: https://twitter.com/kenwicksoupwagon
+    alt: Follow me on twitter
+  - icon: facebook
+    url: facebook.com
+    alt: Follow me on facebook
+  - icon: instagram
+    url: instagram.com
+    alt: Follow me on Instagram
