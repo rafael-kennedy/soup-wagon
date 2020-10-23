@@ -42,12 +42,15 @@ module.exports = {
       colors: {
         cream: {
           heavy: "#DDB47Cff",
-          light: "#ddb47c4f"
+          light: "#ddb47c4f",
         },
         brown: "#AA5D3Cff",
         green: "#698659ff",
         sage: "#AAA786ff",
         accentGreen: "#657261ff",
+      },
+      backgroundImage: {
+        "hero-soup": "url('/img/lots-of-soup.jpg')",
       },
     },
   },
