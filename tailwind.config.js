@@ -1,3 +1,27 @@
+// tailwind.config.js
+module.exports = {
+  theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+    },
+    borderWidth: {
+      default: "1px",
+      0: "0",
+      2: "2px",
+      4: "4px",
+    },
+    extend: {
+      spacing: {
+        96: "24rem",
+        128: "32rem",
+      },
+    },
+  },
+};
+
 module.exports = {
   purge: {
     mode: "all",
@@ -7,11 +31,24 @@ module.exports = {
     },
   },
   theme: {
+    fontFamily: {
+      display: ["Garamond", "sans-serif"],
+      body: ["Garamond", "sans-serif"],
+    },
     container: {
       center: true,
     },
     extend: {
-      colors: {},
+      colors: {
+        cream: {
+          heavy: "#DDB47Cff",
+          light: "#ddb47c4f"
+        },
+        brown: "#AA5D3Cff",
+        green: "#698659ff",
+        sage: "#AAA786ff",
+        accentGreen: "#657261ff",
+      },
     },
   },
   variants: {},
