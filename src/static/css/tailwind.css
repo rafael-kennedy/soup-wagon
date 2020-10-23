@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 h1 {
+  font-family: artsandcrafts, sans-serif;
   @apply text-4xl tracking-tighter mb-3 text-center lg:text-7xl;
   @apply text-brown;
 }
