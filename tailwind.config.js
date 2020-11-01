@@ -50,7 +50,7 @@ module.exports = {
         accentGreen: "#657261ff",
       },
       backgroundImage: {
-        "hero-soup": "url('/img/lots-of-soup.jpg')",
+        "hero-soup": "url('../img/lots-of-soup.jpg')",
       },
     },
   },
