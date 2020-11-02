@@ -37,7 +37,12 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Layout", name: "layout", widget: "hidden", default: "default" }
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "default",
+        }
       - widget: select
         label: "tags"
         name: "tags"
@@ -57,9 +62,24 @@ collections:
         name: "thumbnail"
         widget: "image"
         required: false
-      - { label: "Layout", name: "layout", widget: "hidden", default: "default" }
-      - {label: "Serving This Week", name: "this_week", widget: "boolean", default: false}
-      - { label: "Serving Next Week", name: "next_week", widget: "boolean", default: false }
+      - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "default",
+        }
+      - {
+          label: "Serving This Week",
+          name: "this_week",
+          widget: "boolean",
+          default: false,
+        }
+      - {
+          label: "Serving Next Week",
+          name: "next_week",
+          widget: "boolean",
+          default: false,
+        }
   - label: "Settings"
     name: "settings"
     editor:

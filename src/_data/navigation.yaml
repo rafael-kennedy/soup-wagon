@@ -2,9 +2,7 @@
 items:
   - text: About Me
     url: "/about"
-  - text: Menu Two
-    url: "#"
-  - text: Menu Three
-    url: "#"
+  - text: Place An Order
+    url: "/place-order"
   - text: Blog
     url: "/blog"
