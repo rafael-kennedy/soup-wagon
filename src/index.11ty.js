@@ -31,7 +31,6 @@ module.exports = {
     const thisWeeksSoups = data.collections.soups.filter(
       (v) => !!v.data.this_week
     );
-    console.log("SOUPS", thisWeeksSoups);
     return `
     <div
   class="container mx-auto lg:h-screen flex flex-col justify-center items-center"
