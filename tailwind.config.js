@@ -54,7 +54,10 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    // The 'active' variant will be generated in addition to the defaults
+    flexDirection: ({ before }) => before(["responsive"]),
+  },
   plugins: [require("@tailwindcss/typography")],
   experimental: "all",
   future: {

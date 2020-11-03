@@ -1,17 +1,21 @@
 const { inspect } = require("util");
 
 const soupTemplate = (soup) => {
-  return `
-
-            <a href="{{item.url}}" target="_blank" class="p-5 border rounded border-gray-200 hover:border-purple-400">
-                <h3>${soup.data.title}                    </h3>
-                    <div class="flex flex-row justify-between">
-                                    <p>${soup.templateContent}</p>
-                                    <img src="${soup.data.thumbnail}" class="w-auto h-40">
-
-  </div>
-            </a>
-
+  return /* HTML */ `
+    <a
+      href="${soup.url}"
+      target="_blank"
+      class="p-5 border rounded border-gray-200 hover:border-purple-400"
+    >
+      <h3 class="text-center">${soup.data.title}</h3>
+      <div class="flex md:flex-column sm:flex-row justify-between">
+        ${soup.templateContent}
+        <img
+          src="${soup.data.thumbnail}"
+          class="w-auto sm:h-40 md:h-40 lg:h-20 rounded-md"
+        />
+      </div>
+    </a>
   `;
 };
 
@@ -27,7 +31,7 @@ module.exports = {
     const thisWeeksSoups = data.collections.soups.filter(
       (v) => !!v.data.this_week
     );
-    console.log('SOUPS', thisWeeksSoups)
+    console.log("SOUPS", thisWeeksSoups);
     return `
     <div
   class="container mx-auto lg:h-screen flex flex-col justify-center items-center"

@@ -85,6 +85,11 @@ collections:
     editor:
       preview: false
     files:
+      - label: "About Me"
+        name: "about"
+        file: "src/about/index.md"
+        fields:
+        - { label: "About Me content", name: "body", widget: "markdown" }
       - label: "Navigation"
         name: "items"
         file: "src/_data/navigation.yaml"
