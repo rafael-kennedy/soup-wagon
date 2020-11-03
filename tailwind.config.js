@@ -35,6 +35,12 @@ module.exports = {
       display: ["Garamond", "sans-serif"],
       body: ["Garamond", "sans-serif"],
     },
+    lineClamp: {
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+    },
     container: {
       center: true,
     },
@@ -58,7 +64,10 @@ module.exports = {
     // The 'active' variant will be generated in addition to the defaults
     flexDirection: ({ before }) => before(["responsive"]),
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("tailwindcss-line-clamp"),
+  ],
   experimental: "all",
   future: {
     purgeLayersByDefault: true,
