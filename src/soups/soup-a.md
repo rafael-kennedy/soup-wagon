@@ -1,5 +1,5 @@
 ---
-title: Vegan Curried Pumpkin.
+title: Vegan Spiced Pumpkin
 ingredients: |-
   Pumpkin and winter squash (Kuri squash)\
   Silken Tofu\
@@ -18,8 +18,6 @@ ingredients: |-
   Cloves\
   Salt\
   Pepper
-
-  Topping: Spiced pepitas
 thumbnail: /static/img/pexels-pixabay-209540.jpg
 this_week: true
 next_week: false
