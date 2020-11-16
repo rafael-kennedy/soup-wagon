@@ -18,7 +18,7 @@ ingredients: |-
   Cloves\
   Salt\
   Pepper
-thumbnail: /static/img/pexels-pixabay-209540.jpg
+thumbnail: /static/img/img_20201116_113301156.jpg
 this_week: true
 next_week: false
 ---
