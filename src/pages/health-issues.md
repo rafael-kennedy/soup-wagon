@@ -6,7 +6,7 @@ The soup is all prepared in a health department inspected commercial kitchen usi
 
 You should be able to keep your quart of soup in the refrigerator for at least 5 days, maybe more. This is hard to predict as everyone's refridgerator is a bit different. Food keeps best below 40 deg. farenheit.
 
-Most of the soups will freeze well. If you are freezing in a glass jar it is best to take the lid off the jar until the soup is frozen and then replace it, which will help safeguard against breaking. Do not take the jar directly from the freezer to microwave, thaw first. 
+Most of the soups will freeze well. If you are freezing in a glass jar it is best to take the lid off the jar until the soup is frozen and then replace it, which will help safeguard against breaking. It is also a good idea to eat a few spoonfuls from the top of the container to give the soup room to expand. Do not take a glass directly from the freezer to microwave, thaw  in the refrigerator first. 
 
 All ingredients are listed in the description of each soup. I highlight common allergens. 
 
