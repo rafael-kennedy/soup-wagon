@@ -2,8 +2,8 @@
 title: Meatball soup
 ingredients: 1. Maybe this is unnecessary
 thumbnail: /static/img/chicken_lionhead_mealball_soup_03.jpg
-this_week: true
-next_week: false
+this_week: false
+next_week: true
 ---
 Lionhead Meatball Soup
 
