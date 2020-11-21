@@ -126,6 +126,6 @@ collections:
               name: nextDeliveryDate,
               required: false,
               widget: datetime,
-              date_format: "MMM DD YYYY"
+              date_format: "MMM DD YYYY",
               picker_utc: false
             }
