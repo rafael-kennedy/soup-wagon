@@ -80,6 +80,8 @@ collections:
           widget: "boolean",
           default: false,
         }
+      - { label: "Price", name: "price", widget: "number", required: false }
+
   - label: "Settings"
     name: "settings"
     editor:

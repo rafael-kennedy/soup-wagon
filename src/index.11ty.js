@@ -42,7 +42,7 @@ The next delivery is on:
     <div
   class="container mx-auto lg:h-screen flex flex-col justify-center items-center"
 >
-  <h1 class="bg-white">
+  <h1 class="bg-white lg:max-w-lg lg:mt-20">
    <img src="/static/img/logo.jpg" alt="${data.title}">
 
   </h1>

@@ -8,6 +8,13 @@ class SoupPage {
 
   render(data) {
     console.log(data);
+    const priceString = data.price
+      ? `
+        <div class="text-center ">Price: ${data.price} per quart, plus container.</div>
+
+    `
+      : "";
+
     return /* HTML */ `
       <div class="container max-w-3xl mt-6 px-6">
         <h1 class="font-bold text-5xl">${data.title}</h1>
@@ -22,6 +29,7 @@ class SoupPage {
         <div class="text-center ">${data.content}</div>
         <h3 class="text-center mt-10">Ingredients</h3>
         <div class="text-center ">${data.ingredients}</div>
+        ${priceString}
       </div>
     `;
   }

@@ -21,6 +21,7 @@ ingredients: |-
 thumbnail: /static/img/img_20201116_113301156.jpg
 this_week: true
 next_week: false
+price: 10.00
 ---
 Well, yes, it's timely, maybe a bit cliche. Everybody thinks of pumpkins at this time of year. But don't get sniffy about this nourishing vegetable just because it's photogenic. It's high in beta carotene to boost your immune system and fight aging; and has lots of heart healthy potassium and fiber. 
 
