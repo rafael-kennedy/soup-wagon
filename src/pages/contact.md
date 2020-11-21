@@ -1,6 +1,6 @@
 ---
 title: Contact Me
-layout: default
+layout: text-page
 ---
 Wednesday is soup day.\
 \

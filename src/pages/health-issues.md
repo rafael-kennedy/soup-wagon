@@ -1,6 +1,6 @@
 ---
 title: Health Issues
-layout: default
+layout: text-page
 ---
 The soup is all prepared in a health department inspected commercial kitchen using all the care possible to make sure it is healthy and free of infection. I have a food handler's permit, and have been cooking commercially for 5 years. Care is taken when delivering soup to make sure it stays cold or hot.
 

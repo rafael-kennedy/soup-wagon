@@ -1,6 +1,6 @@
 ---
 title: F. A. Q's
-layout: default
+layout: text-page
 ---
 ### Q: This is so complicated! I just want some soup!
 

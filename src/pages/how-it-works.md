@@ -1,6 +1,6 @@
 ---
 title: How It Works
-layout: default
+layout: text-page
 ---
 Wednesday is soup day.\
 \

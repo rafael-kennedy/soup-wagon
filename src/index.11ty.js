@@ -43,11 +43,8 @@ The next delivery is on:
   class="container mx-auto lg:h-screen flex flex-col justify-center items-center"
 >
   <h1 class="bg-white">
-    <strong
-      class="bg-clip-text text-transparent bg-gradient-to-r from-brown to-green"
-    >
-      ${data.title}
-    </strong>
+   <img src="/static/img/logo.jpg" alt="${data.title}">
+
   </h1>
   <!--    LOGO -->
   
