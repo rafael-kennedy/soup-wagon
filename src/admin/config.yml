@@ -121,3 +121,11 @@ collections:
           - { label: Name, name: name, widget: string }
           - { label: Author, name: author, widget: string }
           - { label: URL, name: url, widget: string }
+          - { 
+              label: Next Delivery Date,
+              name: nextDeliveryDate,
+              required: false,
+              widget: datetime,
+              date_format: "MMM DD YYYY"
+              picker_utc: false
+            }

@@ -6,3 +6,10 @@ items:
     url: "/place-order"
   - text: Blog
     url: "/blog"
+  - text: FAQ
+    url: "/pages/f-a-qs"
+  - text: Health Issues
+    url: "/pages/health-issues"
+  - text: How It Works
+    url: "/pages/how-it-works"
+
