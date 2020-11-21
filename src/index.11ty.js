@@ -1,5 +1,4 @@
-const { inspect } = require("util");
-
+const format = require("date-fns/format");
 const soupTemplate = (soup) => {
   return /* HTML */ `
     <a
@@ -30,6 +29,15 @@ module.exports = {
     const thisWeeksSoups = data.collections.soups.filter(
       (v) => !!v.data.this_week
     );
+    const { nextDeliveryDate } = data.settings;
+    const deliveryDateString = nextDeliveryDate
+      ? `
+<h4>
+The next delivery is on:
+    <em>${format(nextDeliveryDate, "MMMM do")}</em>
+</h4>
+    `
+      : "";
     return `
     <div
   class="container mx-auto lg:h-screen flex flex-col justify-center items-center"
@@ -44,6 +52,7 @@ module.exports = {
   <!--    LOGO -->
   
   <h3>This Week's Soups</h3>
+  ${deliveryDateString}
   <div class="w-full max-w-2xl grid grid-cols-1 lg:grid-cols-2 gap-4 my-8 px-4 lg:mx-0">
 
   ${thisWeeksSoups.map(soupTemplate).join("")}

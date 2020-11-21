@@ -114,7 +114,7 @@ collections:
               - { label: Icon, name: icon, widget: string }
               - { label: URL, name: url, widget: string }
               - { label: Alternate Text, name: alt, widget: string }
-      - label: "Meta Settings"
+      - label: "Site Settings"
         name: "settings"
         file: "src/_data/settings.yaml"
         fields:
