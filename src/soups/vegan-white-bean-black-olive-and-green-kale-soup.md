@@ -17,6 +17,7 @@ ingredients: |-
   Sage\
   Salt\
   Black pepper
+layout: default
 this_week: false
 next_week: false
 ---

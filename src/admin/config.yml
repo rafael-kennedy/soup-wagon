@@ -63,6 +63,12 @@ collections:
         widget: "image"
         required: false
       - {
+          label: "Layout",
+          name: "layout",
+          widget: "hidden",
+          default: "default",
+        }
+      - {
           label: "Serving This Week",
           name: "this_week",
           widget: "boolean",

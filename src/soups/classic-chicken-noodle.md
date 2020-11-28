@@ -12,7 +12,7 @@ ingredients: |-
   Salt
   Pepper
 thumbnail: /static/img/2020-11-13-14.00.58.jpg
-layout: soup
+layout: default
 this_week: true
 next_week: false
 price: 11

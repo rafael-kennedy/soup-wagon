@@ -12,7 +12,7 @@ ingredients: |-
   Dill\
   Salt \
   Pepper
-layout: soup
+layout: default
 this_week: false
 next_week: false
 ---
