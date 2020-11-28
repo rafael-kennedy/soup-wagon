@@ -10,11 +10,14 @@
       integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" type="text/css" href="/static/css/fonts.css" />
+    <link rel="preconnect" href="https://app.snipcart.com" />
+    <link rel="preconnect" href="https://cdn.snipcart.com" />
     <link
-            rel="stylesheet"
-            type="text/css"
-            href="/static/css/fonts.css"
+      rel="stylesheet"
+      href="https://cdn.snipcart.com/themes/v3.0.26/default/snipcart.css"
     />
+
     <title>{{title}}</title>
     {% if description %}
     <meta name="description" content="{{description}}" />
@@ -42,5 +45,40 @@
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"
     ></script>
     {% endif %}
+    <script
+      async
+      src="https://cdn.snipcart.com/themes/v3.0.26/default/snipcart.js"
+    ></script>
+    <div
+      hidden
+      id="snipcart"
+      data-api-key="Y2MyMTM4ODQtNGY0NC00ODZlLWE4OGQtNzc5N2IxN2FkMmUzNjM3NDIxNzk1MjIyMzQ4ODc0"
+      data-config-modal-style="side"
+    >
+      <billing section="bottom">
+        <fieldset class="snipcart-form__set">
+          <div class="snipcart-form__field">
+            <div class="snipcart-form__field-checkbox">
+              <snipcart-checkbox name="inKenwick" required></snipcart-checkbox>
+              <snipcart-label
+                class="snipcart__font--tiny snipcart-form__label--checkbox"
+                for="inKenwick"
+              >
+                I am located in the Kenwick or Mentelle Park Neighborhoods.
+                <a href="http://maps.lexingtonky.gov/mapit" class="bold blue"
+                  >Not Sure?
+                </a>
+              </snipcart-label>
+              <snipcart-error-message
+                name="<string>"
+                showFieldsErrors="<boolean>"
+                icon="<string>"
+              >
+              </snipcart-error-message>
+            </div>
+          </div>
+        </fieldset>
+      </billing>
+    </div>
   </body>
 </html>

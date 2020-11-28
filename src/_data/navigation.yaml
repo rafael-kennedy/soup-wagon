@@ -2,8 +2,8 @@
 items:
   - text: About Me
     url: "/about"
-  - text: Place An Order
-    url: "/place-order"
+#  - text: Place An Order
+#    url: "/place-order"
   - text: Blog
     url: "/blog"
   - text: FAQ
