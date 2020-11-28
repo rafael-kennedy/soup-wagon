@@ -20,7 +20,7 @@
     "postcss-cli": "^7.1.1",
     "prettier": "^2.1.2",
     "prismjs": "^1.21.0",
-    "tailwindcss": "^1.7.2"
+    "tailwindcss": "^1.9.6"
   },
   "dependencies": {
     "tailwindcss-line-clamp": "^1.0.5"

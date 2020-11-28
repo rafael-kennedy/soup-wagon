@@ -4,10 +4,20 @@ const template = /* HTML */ `
     <form class="mb-6" action="#" id="orderFormComponent">
       <div class="flex flex-col mb-4">
         <label
-          class="mb-2 uppercase font-bold text-lg text-grey-darkest"
+          class="mb-2 font-bold text-lg text-grey-darkest"
           for="first_name"
-          >Are you in the Kenwick or Mentelle Park neighborhoods?</label
         >
+          Are you in the Kenwick or Mentelle Park neighborhoods?
+        </label>
+        <label class="mb-2 text-md text-grey-darkest link" for="first_name">
+          Not sure? You can find a map here:
+          <a
+            class="text-green hover:text-brown"
+            href="http://maps.lexingtonky.gov/mapit"
+            >http://maps.lexingtonky.gov/mapit</a
+          >
+        </label>
+
         <div class="inline-flex">
           <input
             type="radio"
@@ -25,6 +35,7 @@ const template = /* HTML */ `
             name="kenwick"
             value="no"
             x-model="isInKenwick"
+            @changed="setupPayPal"
           />
           <label for="no" class="ml-4">
             No -- I'm sorry delivery not available -- but watch for pop-up soup
@@ -70,19 +81,21 @@ const template = /* HTML */ `
             </thead>
             <tbody>
               <template x-for="(orderSoup, index) in soups" :key="index">
-                <tr>
-                  <th><span class="" x-text="orderSoup.title"></span></th>
-                  <th>
+                <tr :class="{'bg-gray-200': !(index % 2)}">
+                  <th class="text-right">
+                    <span x-text="orderSoup.title" class="mr-6"></span>
+                  </th>
+                  <td>
                     <input
                       type="number"
                       x-model="orderSoup.quantity"
                       placeholder="0"
                     />
-                  </th>
-                  <th
-                    class=""
+                  </td>
+                  <td
+                    class="text-left"
                     x-text="'@ $' + orderSoup.price + ' per quart'"
-                  ></th>
+                  ></td>
                 </tr>
               </template>
             </tbody>
@@ -100,7 +113,7 @@ const template = /* HTML */ `
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr class="bg-gray-200">
                 <th>Reusable Containers</th>
                 <th>
                   <input
@@ -136,14 +149,23 @@ const template = /* HTML */ `
             </tbody>
           </table>
 
-          <h4>Total Price: <span x-text="computedPrice"></span></h4>
-
-          <button
-            class="block uppercase text-lg mx-auto p-4 rounded"
-            @click.prevent="submit()"
-          >
-            Submit
-          </button>
+          <h4 class="text-center text-xl">
+            Total Price: <span x-text="computedPrice"></span>
+          </h4>
+          <div id="smart-button-container">
+            <div style="text-align: center;">
+              <div id="paypal-button-container"></div>
+            </div>
+          </div>
+          <div class="flex justify-center mt-6">
+            <button
+              type="button"
+              class="border border-brown-500 bg-brown text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green focus:outline-none focus:shadow-outline"
+              @click.prevent="submit()"
+            >
+              Submit
+            </button>
+          </div>
         </div>
       </template>
     </form>

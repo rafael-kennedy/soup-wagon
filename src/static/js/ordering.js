@@ -6,17 +6,26 @@ const fields = {
   reusableContainers: ["entry.1501295403", ""],
   returningContainers: ["entry.145362684", ""],
   totalPrice: ["entry.447434343", ""],
+  payment: ["entry.899456984", "None"],
 };
 const corsPrefix = "https://cors-anywhere.herokuapp.com/";
 const target =
   corsPrefix +
   "https://docs.google.com/forms/u/0/d/e/1FAIpQLSevQCDaUAtbCpJmdlJFMbnMtREiXiVdQeG47R9B7MKaZiWUug/formResponse?embedded=true";
 const soups = window.currentSoups.map((v) => ({ ...v, quantity: "" }));
+
 function orderForm() {
-  return {
+  const orderState = {
     ...fields,
+    payPalInitiated: false,
     isInKenwick: false,
+
     soups,
+    get soupString() {
+      return this.soups
+        .map((v) => (v.quantity ? v.title + " x " + v.quantity : ""))
+        .join("\n");
+    },
     get computedPrice() {
       let price = 0;
       const {
@@ -32,16 +41,65 @@ function orderForm() {
       price += (Number(reusableContainers[1]) || 0) * 3;
       price -= (Number(returningContainers[1]) || 0) * 3;
 
+      if (price) {
+        this.setupPayPal();
+      }
+
       return price;
     },
+    setupPayPal(data) {
+      if (this.payPalInitiated) {
+        return;
+      }
+      this.payPalInitiated = true;
+      debugger;
+      console.log(data);
+      paypal
+        .Buttons({
+          style: {
+            shape: "pill",
+            color: "gold",
+            layout: "vertical",
+            label: "paypal",
+          },
+
+          createOrder: function (data, actions) {
+            console.log("description", orderState.soupString);
+            console.log("price", orderState.computedPrice);
+            return actions.order.create({
+              purchase_units: [
+                {
+                  description: orderState.soupString,
+                  amount: {
+                    currency_code: "USD",
+                    value: orderState.computedPrice,
+                  },
+                },
+              ],
+            });
+          },
+
+          onApprove: function (data, actions) {
+            return actions.order.capture().then(function (details) {
+              console.log(details);
+              orderState.payment[1] = details && details.id;
+              orderState.submit();
+            });
+          },
+
+          onError: function (err) {
+            console.log(err);
+          },
+        })
+        .render("#paypal-button-container");
+    },
     submit() {
-      const soupString = this.soups
-        .map((v) => (v.quantity ? v.title + "x" + v.quantity : ""))
-        .join("\n");
+      const soupString = this.soupString;
 
       const formData = new FormData();
       formData.append(fields.email[0], fields.email[1]);
       formData.append(fields.address[0], fields.address[1]);
+      formData.append(fields.payment[0], fields.payment[1]);
       formData.append(
         fields.disposableContainers[0],
         fields.disposableContainers[1]
@@ -57,13 +115,11 @@ function orderForm() {
       formData.append(fields.soup[0], soupString);
       formData.append(fields.totalPrice[0], this.computedPrice);
 
-      debugger;
-
       // event handler
       function reqListener() {
         if (this.status === 200) {
           alert(
-            "Hey, We got your Order! Thank you so much! We will reach out to you and get payment when we deliver your soup."
+            `Hey, We got your Order! Thank you so much! We may contact you about delivery!`
           );
           window.location.href = "/";
         }
@@ -80,6 +136,8 @@ function orderForm() {
       newXHR.send(formData);
     },
   };
+
+  return orderState;
 }
 
 window.orderForm = orderForm;
