@@ -32,7 +32,7 @@ class SoupPage {
             class="snipcart-add-item block bg-indigo-500 text-white active:bg-indigo-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1""
             data-item-id="${this.tokenize(data.title)}"
             data-item-price="${data.price}"
-            data-item-url="${data.url}"
+            data-item-url="${data.page.url}"
             data-item-description="1 Quart of delicious soup: ${data.title}"
             data-item-image="${data.thumbnail}"
             data-item-name="${data.title}"
