@@ -1,4 +1,5 @@
 {
   "layout": "soup",
-  "tags": ["soups"]
+  "tags": ["soups"],
+  "price": 10
 }

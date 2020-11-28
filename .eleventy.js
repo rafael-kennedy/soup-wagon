@@ -16,6 +16,12 @@ module.exports = function (eleventyConfig) {
     );
   });
 
+  eleventyConfig.addFilter('linesToBullets', str => {
+    const lines = str.split('\n');
+    const lis = lines.map(v => '<li>' + v + '</li>').join('\n');
+    return `<ul>${lis}</ul>`
+  })
+
   // Syntax Highlighting for Code blocks
   eleventyConfig.addPlugin(syntaxHighlight);
 
@@ -32,6 +38,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "./_tmp/static/css/style.css": "./static/css/style.css",
     "./src/admin/config.yml": "./admin/config.yml",
+    "./src/static/js": "./static/js",
     "./node_modules/alpinejs/dist/alpine.js": "./static/js/alpine.js",
     "./node_modules/prismjs/themes/prism-tomorrow.css":
       "./static/css/prism-tomorrow.css",

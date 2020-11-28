@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.flex {
+  align-items: flex-start;
+}
+
 h1 {
   font-family: artsandcrafts, sans-serif;
   @apply text-4xl tracking-tighter mb-3 text-center lg:text-7xl;

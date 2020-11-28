@@ -7,7 +7,7 @@ class SoupPage {
   }
 
   render(data) {
-    console.log(data);
+
     const priceString = data.price
       ? `
         <div class="text-center ">Price: ${data.price} per quart, plus container.</div>
@@ -28,7 +28,7 @@ class SoupPage {
         <h3 class="text-center mt-10">Description</h3>
         <div class="text-center ">${data.content}</div>
         <h3 class="text-center mt-10">Ingredients</h3>
-        <div class="text-center ">${data.ingredients}</div>
+        <div class="text-center ">${this.linesToBullets(data.ingredients.replace(/\\\n/gm, '\n'))}</div>
         ${priceString}
       </div>
     `;
