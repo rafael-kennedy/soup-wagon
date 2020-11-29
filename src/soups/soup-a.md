@@ -1,5 +1,5 @@
 ---
-title: Vegan Spiced Pumpkin
+title: Vegan Spiced Winter Squash
 ingredients: |-
   Pumpkin and winter squash (Kuri squash)\
   Silken Tofu\
@@ -19,15 +19,13 @@ ingredients: |-
   Salt\
   Pepper
 thumbnail: /static/img/img_20201116_113301156.jpg
-this_week: true
-next_week: false
-price: 10.00
+this_week: false
+next_week: true
+price: 10
 ---
-Well, yes, it's timely, maybe a bit cliche. Everybody thinks of pumpkins at this time of year. But don't get sniffy about this nourishing vegetable just because it's photogenic. It's high in beta carotene to boost your immune system and fight aging; and has lots of heart healthy potassium and fiber. 
+This soup is made from a mix of winter squashes: pumpkin, butternut, Kuri.  It's high in beta carotene to boost your immune system and fight aging; and has lots of heart healthy potassium and fiber. 
 
-This soup pairs the pumpkin with tofu for protein. and warming spices, ginger and creamy coconut milk. \
-It is smooth and rich; warm and soothing. And, if this heat wave holds it can even be eaten chilled.
+This soup pairs the squash with tofu for protein. and warming spices, ginger and creamy coconut milk. \
+It is smooth and rich; warm and soothing.
 
 Allergens: Soy, Tree nuts (coconuts)
-
-Cost 10/quart plus package.
