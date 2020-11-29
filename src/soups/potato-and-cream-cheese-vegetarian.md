@@ -13,6 +13,7 @@ ingredients: |-
   Salt \
   Pepper
 layout: soup
+thumbnail: /static/img/potato-soup-recipe_dsc2410.jpg
 this_week: false
 next_week: true
 price: 10
