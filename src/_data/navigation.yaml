@@ -1,7 +1,5 @@
 ---
 items:
-  - text: About Me
-    url: "/about"
   - text: Place An Order
     url: "/place-order"
   - text: Contact Me
