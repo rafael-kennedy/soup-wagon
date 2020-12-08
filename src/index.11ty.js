@@ -17,6 +17,10 @@ const soupTemplate = (soup) => {
   `;
 };
 
+function conditionalPluralize(str, list = []) {
+  return str + (list.length > 1 ? "s" : "");
+}
+
 module.exports = {
   data() {
     return {
@@ -26,6 +30,9 @@ module.exports = {
     };
   },
   render(data) {
+    const nextWeeksSoups = data.collections.soups.filter(
+      (v) => !!v.data.next_week
+    );
     const thisWeeksSoups = data.collections.soups.filter(
       (v) => !!v.data.this_week
     );
@@ -40,7 +47,7 @@ The next delivery is on:
       : "";
     return `
     <div
-  class="container mx-auto lg:h-screen flex flex-col justify-center items-center"
+  class="container mx-auto flex flex-col justify-center items-center"
 >
   <h1 class="bg-white lg:max-w-lg lg:mt-20">
    <img src="/static/img/logo.jpg" alt="${data.title}">
@@ -48,13 +55,22 @@ The next delivery is on:
   </h1>
   <!--    LOGO -->
   
-  <h3>This Week's Soups</h3>
+  <h3>${conditionalPluralize("This Week's Soup", thisWeeksSoups)}</h3>
   ${deliveryDateString}
   <div class="w-full max-w-2xl grid grid-cols-1 lg:grid-cols-2 gap-4 my-8 px-4 lg:mx-0">
-
   ${thisWeeksSoups.map(soupTemplate).join("")}
-  
   </div>
+  <hr/>
+  
+  <h4 class="text-xl">  ${conditionalPluralize(
+    "Next Week's Soup",
+    nextWeeksSoups
+  )}</h4>
+  <div class="w-full max-w-2xl grid grid-cols-1 lg:grid-cols-2 gap-4 my-8 px-4 lg:mx-0">
+
+    ${nextWeeksSoups.map(soupTemplate).join("")}
+  </div>
+ </div>
     `;
   },
 };
