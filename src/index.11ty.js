@@ -62,10 +62,7 @@ The next delivery is on:
   </div>
   <hr/>
   
-  <h4 class="text-xl">  ${conditionalPluralize(
-    "Next Week's Soup",
-    nextWeeksSoups
-  )}</h4>
+  <h3>${conditionalPluralize("Next Week's Soup", nextWeeksSoups)}</h3>
   <div class="w-full max-w-2xl grid grid-cols-1 lg:grid-cols-2 gap-4 my-8 px-4 lg:mx-0">
 
     ${nextWeeksSoups.map(soupTemplate).join("")}
