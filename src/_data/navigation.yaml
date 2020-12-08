@@ -4,8 +4,8 @@ items:
     url: "/about"
   - text: Place An Order
     url: "/place-order"
-  - text: Blog
-    url: "/blog"
+  - text: Contact Me
+    url: "/pages/contact"
   - text: FAQ
     url: "/pages/f-a-qs"
   - text: Health Issues
