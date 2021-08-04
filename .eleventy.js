@@ -1,6 +1,29 @@
 const yaml = require("js-yaml");
 const { DateTime } = require("luxon");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const Image = require("@11ty/eleventy-img");
+function imageShortcode(src, cls, alt, sizes, widths = [500, 1200]) {
+  let options = {
+    widths: widths,
+    formats: ["jpg", "jpeg"],
+    outputDir: "src/processed/img/",
+    urlPath: "/processed/img/",
+  };
+
+  // generate images, while this is async we don’t wait
+  Image(src, options);
+
+  let imageAttributes = {
+    class: cls,
+    alt,
+    sizes,
+    loading: "lazy",
+    decoding: "async",
+  };
+  // get metadata even the images are not fully generated
+  const metadata = Image.statsSync(src, options);
+  return Image.generateHTML(metadata, imageAttributes);
+}
 
 module.exports = function (eleventyConfig) {
   // Disable automatic use of your .gitignore
@@ -62,9 +85,12 @@ module.exports = function (eleventyConfig) {
     "./node_modules/prismjs/themes/prism-tomorrow.css":
       "./static/css/prism-tomorrow.css",
   });
+  eleventyConfig.addJavaScriptFunction("image", imageShortcode);
 
   // Copy Image Folder to /_site
   eleventyConfig.addPassthroughCopy("./src/static/img");
+  eleventyConfig.addPassthroughCopy("./src/processed/img");
+
   eleventyConfig.addPassthroughCopy("./src/static/css");
 
   // Let Eleventy transform HTML files as nunjucks

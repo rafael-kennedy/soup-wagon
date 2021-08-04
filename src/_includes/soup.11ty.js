@@ -20,11 +20,12 @@ class SoupPage {
         `
           : ""}
         <div class="flex h-auto w-50 justify-center">
-          <img
-            src="${data.thumbnail}"
-            alt="image of soup"
-            class="h-auto w-80 rounded-md "
-          />
+          ${this.image(
+            "src/" + data.thumbnail,
+            "h-auto w-80 rounded-md ",
+            data.title,
+            "(min-width: 30em) 50vw, 100vw"
+          )}
         </div>
         <h3 class="text-center mt-10">Description</h3>
         <div class="text-center ">${data.content}</div>
