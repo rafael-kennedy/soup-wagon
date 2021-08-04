@@ -1,5 +1,5 @@
 const format = require("date-fns/format");
-const soupTemplate = (soup) => {
+const soupTemplate = function (soup, ctx) {
   return /* HTML */ `
     <a
       href="${soup.url}"
@@ -14,10 +14,13 @@ const soupTemplate = (soup) => {
       <h3 class="text-center">${soup.data.title}</h3>
 
       <div class="flex flex-start md:flex-column sm:flex-row justify-center">
-        <img
-          src="${soup.data.thumbnail}"
-          class="w-auto sm:h-40 md:h-40 lg:h-20 rounded-md"
-        />
+        ${ctx.image(
+          "src/" + soup.data.thumbnail,
+          "h-auto w-30 rounded-md ",
+          soup.data.title,
+          "150px",
+          [150]
+        )}
       </div>
     </a>
   `;
@@ -51,6 +54,7 @@ The next delivery is on:
 </h4>
     `
       : "";
+    const ctx = this;
     return `
     <div
   class="container mx-auto flex flex-col justify-center items-center"
@@ -64,14 +68,14 @@ The next delivery is on:
   <h3>${conditionalPluralize("This Week's Soup", thisWeeksSoups)}</h3>
   ${deliveryDateString}
   <div class="w-full max-w-2xl grid grid-cols-1 lg:grid-cols-2 gap-4 my-8 px-4 lg:mx-0">
-  ${thisWeeksSoups.map(soupTemplate).join("")}
+  ${thisWeeksSoups.map((v) => soupTemplate(v, ctx)).join("")}
   </div>
   <hr/>
   
   <h3>${conditionalPluralize("Next Week's Soup", nextWeeksSoups)}</h3>
   <div class="w-full max-w-2xl grid grid-cols-1 lg:grid-cols-2 gap-4 my-8 px-4 lg:mx-0">
 
-    ${nextWeeksSoups.map(soupTemplate).join("")}
+    ${nextWeeksSoups.map((v) => soupTemplate(v, ctx)).join("")}
   </div>
  </div>
     `;

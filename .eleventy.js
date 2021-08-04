@@ -5,7 +5,7 @@ const Image = require("@11ty/eleventy-img");
 function imageShortcode(src, cls, alt, sizes, widths = [500, 1200]) {
   let options = {
     widths: widths,
-    formats: ["jpg", "jpeg"],
+    formats: ["jpg"],
     outputDir: "src/processed/img/",
     urlPath: "/processed/img/",
   };
