@@ -8,10 +8,7 @@ class SoupPage {
 
   render(data) {
     const priceString = data.price
-      ? `
-        <div class="text-center ">Price: ${data.price} per quart, plus container.</div>
-
-    `
+      ? `<div class="text-center ">Price: ${data.price} per quart, plus container.</div>`
       : "";
 
     return /* HTML */ `

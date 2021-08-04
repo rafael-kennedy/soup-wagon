@@ -20,7 +20,7 @@ function orderForm() {
     payPalInitiated: false,
     isInKenwick: false,
     paymentMethod: "inperson",
-    soups: soups.filter((v) => !v.sold_out),
+    soups,
     get soupString() {
       return this.soups
         .map((v) => (v.quantity ? v.title + " x " + v.quantity : ""))

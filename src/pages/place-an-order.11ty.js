@@ -221,7 +221,7 @@ const template = /* HTML */ `
 module.exports = {
   render: (data) => {
     const soups = data.collections.soups
-      .filter((v) => v.data.this_week)
+      .filter((v) => v.data.this_week && !v.data.sold_out)
       .map((v) => ({ url: v.url, title: v.data.title, price: v.data.price }));
     return (
       `<script>window.currentSoups = ${JSON.stringify(soups)}</script>` +
@@ -231,6 +231,6 @@ module.exports = {
   data: () => ({
     title: "Place An Order (Beta)",
     layout: "default",
-    permalink: "place-order-beta/",
+    permalink: "place-order/",
   }),
 };
