@@ -6,7 +6,13 @@ const soupTemplate = (soup) => {
       target="_blank"
       class="p-5 border rounded border-gray-200 hover:border-purple-400"
     >
+      ${soup.data.sold_out
+        ? `
+        <h2 class="sold-out-banner">SOLD OUT!</h2>
+        `
+        : ""}
       <h3 class="text-center">${soup.data.title}</h3>
+
       <div class="flex flex-start md:flex-column sm:flex-row justify-center">
         <img
           src="${soup.data.thumbnail}"

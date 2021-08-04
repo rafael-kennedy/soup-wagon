@@ -1,0 +1,9 @@
+.sold-out-banner {
+    position: relative;
+    top: 3.5em;
+    font-size: 150%;
+    color: black;
+    background: rgba(255,225,0,0.9);
+    text-align: center;
+    transform: rotate(-14deg);
+}

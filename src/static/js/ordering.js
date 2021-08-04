@@ -19,8 +19,8 @@ function orderForm() {
     ...fields,
     payPalInitiated: false,
     isInKenwick: false,
-
-    soups,
+    paymentMethod: "inperson",
+    soups: soups.filter((v) => !v.sold_out),
     get soupString() {
       return this.soups
         .map((v) => (v.quantity ? v.title + " x " + v.quantity : ""))
@@ -44,15 +44,29 @@ function orderForm() {
       if (price) {
         this.setupPayPal();
       }
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
 
-      return price;
+      return formatter.format(price);
+    },
+    get computedValid() {
+      const { soups, disposableContainers, reusableContainers } = this;
+      const totalContainers =
+        Number(disposableContainers[1]) + Number(reusableContainers[1]);
+      const totalSoups = soups.reduce((acc, soup) => {
+        return (acc += Number(soup.quantity || 0));
+      }, 0);
+      return totalSoups === totalContainers;
     },
     setupPayPal(data) {
       if (this.payPalInitiated) {
         return;
       }
       this.payPalInitiated = true;
-      debugger;
       console.log(data);
       paypal
         .Buttons({
