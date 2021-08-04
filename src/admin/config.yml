@@ -79,6 +79,7 @@ collections:
           label: "Sold Out",
           name: "sold_out",
           widget: "boolean",
+          required: false,
           default: false,
         }
 
