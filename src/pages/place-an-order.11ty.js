@@ -214,6 +214,31 @@ const template = /* HTML */ `
           </div>
         </div>
       </template>
+      <template x-if="submitted === true">
+        <div class="modal-wrapper">
+          <div class="modal-card">
+            <template x-if="orderFailed">
+              <h3>
+                Sorry, there was an error processing your order. Please call 859
+                - 412 - 4341 and we'll sort it out!
+              </h3>
+            </template>
+            <template x-if="orderSuccessful">
+              <div>
+                <h3>We've got your order!</h3>
+
+                <a href="/" class="text-green hover:text-brown">OK</a>
+              </div>
+            </template>
+            <template x-if="!(orderFailed || orderSuccessful)">
+              <div>
+                <i class="fa fa-spinner spinning"></i>
+                LOADING
+              </div>
+            </template>
+          </div>
+        </div>
+      </template>
     </form>
   </div>
 `;

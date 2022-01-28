@@ -2,7 +2,7 @@
   "scripts": {
     "start": "npm-run-all --parallel css eleventy",
     "eleventy": "eleventy --serve",
-    "debug": "set DEBUG=* & eleventy",
+    "debug": "netlify dev",
     "css": "postcss src/static/css/tailwind.css --o _tmp/static/css/style.css --watch",
     "build": "cross-env NODE_ENV=production eleventy && cross-env NODE_ENV=production postcss src/static/css/tailwind.css --o _site/static/css/style.css"
   },
@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@11ty/eleventy-img": "^0.9.0",
+    "axios": "^0.25.0",
     "tailwindcss-line-clamp": "^1.0.5"
   }
 }

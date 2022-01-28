@@ -8,10 +8,6 @@ const fields = {
   totalPrice: ["entry.447434343", ""],
   payment: ["entry.899456984", "None"],
 };
-const corsPrefix = "https://cors-anywhere.herokuapp.com/";
-const target =
-  corsPrefix +
-  "https://docs.google.com/forms/u/0/d/e/1FAIpQLSevQCDaUAtbCpJmdlJFMbnMtREiXiVdQeG47R9B7MKaZiWUug/formResponse?embedded=true";
 const soups = window.currentSoups.map((v) => ({ ...v, quantity: "" }));
 
 function orderForm() {
@@ -20,6 +16,9 @@ function orderForm() {
     payPalInitiated: false,
     isInKenwick: false,
     paymentMethod: "inperson",
+    submitted: false,
+    orderFailed: false,
+    orderSuccessful: false,
     soups,
     get soupString() {
       return this.soups
@@ -54,13 +53,17 @@ function orderForm() {
       return formatter.format(price);
     },
     get computedValid() {
+      const hasRequiredData =
+        fields.email[1].length && fields.address[1].length;
       const { soups, disposableContainers, reusableContainers } = this;
       const totalContainers =
         Number(disposableContainers[1]) + Number(reusableContainers[1]);
       const totalSoups = soups.reduce((acc, soup) => {
         return (acc += Number(soup.quantity || 0));
       }, 0);
-      return totalSoups === totalContainers;
+      return (
+        hasRequiredData && totalSoups > 0 && totalSoups === totalContainers
+      );
     },
     setupPayPal(data) {
       if (this.payPalInitiated) {
@@ -110,44 +113,28 @@ function orderForm() {
     submit() {
       const soupString = this.soupString;
 
-      const formData = new FormData();
-      formData.append(fields.email[0], fields.email[1]);
-      formData.append(fields.address[0], fields.address[1]);
-      formData.append(fields.payment[0], fields.payment[1]);
-      formData.append(
-        fields.disposableContainers[0],
-        fields.disposableContainers[1]
-      );
-      formData.append(
-        fields.reusableContainers[0],
-        fields.reusableContainers[1]
-      );
-      formData.append(
-        fields.returningContainers[0],
-        fields.returningContainers[1]
-      );
-      formData.append(fields.soup[0], soupString);
-      formData.append(fields.totalPrice[0], this.computedPrice);
-
-      // event handler
-      function reqListener() {
-        if (this.status === 200) {
-          alert(
-            `Hey, We got your Order! Thank you so much! We may contact you about delivery!`
-          );
-          window.location.href = "/";
+      const payload = JSON.stringify({
+        email: fields.email[1],
+        address: fields.address[1],
+        payment: fields.payment[1],
+        disposableContainers: fields.disposableContainers[1],
+        reusableContainers: fields.reusableContainers[1],
+        returningContainers: fields.returningContainers[1],
+        soup: soupString,
+        totalPrice: this.computedPrice,
+      });
+      this.submitted = true;
+      fetch("/.netlify/functions/order", {
+        method: "POST",
+        body: payload,
+      }).then((data) => {
+        if (data.status === 200) {
+          this.orderSuccessful = true;
+        } else {
+          this.orderFailed = true;
         }
-      }
-
-      // get new XHR object
-      var newXHR = new XMLHttpRequest();
-
-      // bind our event listener to the "load" event.
-      // "load" is fired when the response to our request is completed and without error.
-      newXHR.addEventListener("load", reqListener);
-      newXHR.onerror = reqListener;
-      newXHR.open("POST", target);
-      newXHR.send(formData);
+        return data.json();
+      });
     },
   };
 
